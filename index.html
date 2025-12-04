@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neophyten</title>
+
+<!-- Favicon / Browser-Tab Icon -->
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.landfrauen.ch/app/uploads/2025/03/Icon-Neophyten.png">
+
+<!-- Icon für iOS-Startbildschirm -->
+<link rel="apple-touch-icon" sizes="180x180" href="https://i.postimg.cc/cHFmKnJv/Ahornblatt.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="DateiServer">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow-x: hidden;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #a8dadc, #457b9d);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: #f1faee;
+    }
+
+    /* Startbereich: füllt den ganzen Bildschirm */
+    .hero {
+      height: 100vh; /* Vollbild */
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* Überschrift mittig vertikal */
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin: 0.2em 0;
+      transition: all 0.5s ease;
+    }
+
+    .content {
+      max-width: 90%;
+      margin: 50px auto; /* Abstand nach der Überschrift für Scrollen */
+      font-size: 1.5em;
+    }
+  </style>
+</head>
+<body>
+  <!-- Startbereich mit mittiger Überschrift -->
+  <div class="hero">
+    <h1>Biologie Präsentation - Neophyten</h1>
+  </div>
+
+  <!-- Restlicher Inhalt -->
+  <div class="content">
+    <p>Hier kannst du beliebigen Text einfügen – alles nach der Überschrift scrollt nach unten.</p>
+    <p>Füge noch mehr Text ein, um das Scrollen zu testen.</p>
+    <p>Scroll weiter – die Überschrift bleibt sichtbar, wenn du willst, kann sie auch sanft nach oben gleiten.</p>
+  </div>
+
+  <script>
+    // Hintergrundbild laden
+    const imageUrl = "DEIN_BILD_LINK_HIER";
+
+    if (imageUrl) {
+      const img = new Image();
+      img.src = imageUrl;
+      img.onload = () => {
+        document.body.style.backgroundImage = `url(${imageUrl})`;
+        document.body.style.backgroundColor = '';
+      };
+      img.onerror = () => {
+        console.warn("Bild konnte nicht geladen werden, Hintergrundfarbe bleibt sichtbar.");
+      };
+    }
+
+    // Vollbild-Funktion (erfordert Klick)
+    document.addEventListener('click', () => {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch((err) => {
+          console.warn(`Fullscreen konnte nicht aktiviert werden: ${err.message}`);
+        });
+      }
+    }, { once: true });
+  </script>
+</body>
+</html>
